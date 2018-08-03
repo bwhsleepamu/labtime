@@ -1,14 +1,12 @@
 # Labtime
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Labtime`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'Labtime'
+gem 'labtime'
 ```
 
 And then execute:
@@ -17,9 +15,30 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install Labtime
+    $ gem install labtime
 
-## Usage
+## CLI Usage
+1. Make sure you have ruby and ruby gems installed. Refer to https://www.ruby-lang.org/en/documentation/installation/.
+2. Install the labtime gem using this command: "gem install labtime"
+3. Run `labtime` and you should get this output:
+   
+            $ labtime
+            Commands:
+                labtime convert_decimal [decimal_labtime] [year]  # Convert a decimal labtime in a given year to real time in string format
+                labtime hello [name]                              # say my name
+                labtime help [COMMAND]                            # Describe available commands or one specific command
+
+## Python Usage
+
+```python
+import subprocess
+import datetime
+
+realtime = subprocess.check_output(['labtime','convert_decimal','1000.0', '2000']).decode('utf-8')
+realtime = datetime.datetime.strptime(realtime.strip(), "%Y-%m-%d %H:%M:%S %z")
+realtime.isoformat()
+# '2000-02-11T16:00:00-05:00'
+```
 
 ## Development
 
@@ -29,7 +48,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/Labtime.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/labtime.
 
 ## License
 
