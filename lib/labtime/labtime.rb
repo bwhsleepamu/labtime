@@ -44,7 +44,7 @@ module Labtime
         hour = decimal_labtime.to_i
         remainder = decimal_labtime - hour.to_f
 
-        minute_labtime = 6.0 * remainder
+        minute_labtime = 60 * remainder
         minute = minute_labtime.to_i
 
         remainder = minute_labtime - minute.to_f
